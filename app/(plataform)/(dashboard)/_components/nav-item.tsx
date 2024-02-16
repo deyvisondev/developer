@@ -11,6 +11,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export type Organization = {
   id: string;
@@ -47,7 +48,7 @@ export const NavItem = ({
     },
     {
       label: "Settings",
-      icon: <Activity className="h-4 w-4 mr-2" />,
+      icon: <Settings className="h-4 w-4 mr-2" />,
       href: `/organization/${organization.id}/settings`,
     },
     {
@@ -102,3 +103,15 @@ export const NavItem = ({
     </AccordionItem>
   );
 };
+
+
+NavItem.Skeleton = function SkeletonNavItem() {
+  return (
+    <div className="flex items-center gap-x-2">
+      <div className="w-10 h-10 relative shrink-0">
+        <Skeleton className="h-full w-full absolute" />
+      </div>
+      <Skeleton className="h-10 w-full" />
+    </div>
+  )
+}
